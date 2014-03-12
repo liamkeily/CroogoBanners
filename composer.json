@@ -1,0 +1,17 @@
+{
+"name": "liamkeily/croogo-banners",
+"type": "cakephp-plugin",
+"description": "Croog Plugin for managing banners",
+"homepage": "http://github.com/liamkeily/CroogoBanners",
+"license": "MIT",
+"authors": [
+{
+"name": "Liam Keily",
+"email": "liam@simplywebsites.com",
+"homepage": "http://www.liamkeily.com"
+}
+],
+"require": {
+"php": ">=5.3.0"
+}
+}
