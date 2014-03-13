@@ -47,7 +47,7 @@ echo $this->Form->create('Banner');
 			?>
 
 			<div class="input text">	
-				<table class="table striped">
+				<table class="table striped" id="banner_images">
 				<tbody>	
 				<?php
 				foreach($images as $image){
@@ -86,6 +86,21 @@ imagepicker.getFiles(function(files){
 	console.log(files);
 	for(i in files){
 		var file = files[i];
+
+		var banner_image = [];
+		banner_image['BannerImage'] = [];
+		banner_image['BannerImage']['title'] = 'New Image';
+		banner_image['BannerImage']['description'] = '';
+		banner_image['BannerImage']['path'] = file;
+
+		$.ajax({
+			method:'POST',
+			url:'<?php echo $this->Html->url(array('controller'=>'banner_images','action'=>'add')); ?>',
+			data:banner_image,
+			success:function(data){
+				$("#banner_images tbody").append(data);
+			}
+		});		
 	}
 });
 });
