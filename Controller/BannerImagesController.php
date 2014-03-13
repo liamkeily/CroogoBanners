@@ -9,43 +9,12 @@ App::uses('BannersAppController', 'Banners.Controller');
 class BannerImagesController extends BannersAppController {
 
 /**
- * Components
- *
- * @var array
- */
-	public $components = array('Paginator');
-
-/**
- * admin_index method
- *
- * @return void
- */
-	public function admin_index() {
-		$this->BannerImage->recursive = 0;
-		$this->set('bannerImages', $this->paginate());
-	}
-
-/**
- * admin_view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function admin_view($id = null) {
-		if (!$this->BannerImage->exists($id)) {
-			throw new NotFoundException(__d('croogo', 'Invalid banner image'));
-		}
-		$options = array('conditions' => array('BannerImage.' . $this->BannerImage->primaryKey => $id));
-		$this->set('bannerImage', $this->BannerImage->find('first', $options));
-	}
-
-/**
  * admin_add method
  *
  * @return void
  */
 	public function admin_add() {
+		$this->layout = 'ajax';
 		if ($this->request->is('post')) {
 			$this->BannerImage->create();
 			if ($this->BannerImage->save($this->request->data)) {
@@ -55,7 +24,6 @@ class BannerImagesController extends BannersAppController {
 				$this->Session->setFlash(__d('croogo', 'The banner image could not be saved. Please, try again.'), 'default', array('class' => 'error'));
 			}
 		}
-		$banners = $this->BannerImage->Banner->find('list');
 		$this->set(compact('banners'));
 	}
 
@@ -74,6 +42,9 @@ class BannerImagesController extends BannersAppController {
 			if ($this->BannerImage->save($this->request->data)) {
 				$this->Session->setFlash(__d('croogo', 'The banner image has been saved'), 'default', array('class' => 'success'));
 				$this->redirect(array('action' => 'index'));
+
+				$image = $this->request->data;
+				$this->set('image',$image);
 			} else {
 				$this->Session->setFlash(__d('croogo', 'The banner image could not be saved. Please, try again.'), 'default', array('class' => 'error'));
 			}

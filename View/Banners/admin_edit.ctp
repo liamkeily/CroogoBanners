@@ -1,4 +1,6 @@
 <?php
+$this->Html->script('ElFinder.image_picker',array('inline'=>false));
+
 $this->viewVars['title_for_layout'] = __d('croogo', 'Banners');
 $this->extend('/Common/admin_edit');
 
@@ -36,7 +38,28 @@ echo $this->Form->create('Banner');
 				echo $this->Form->input('title', array(
 					'label' => 'Title',
 				));
+				echo $this->Form->input('width', array(
+					'label' => 'Width',
+				));
+				echo $this->Form->input('height', array(
+					'label' => 'Height',
+				));
 			?>
+
+			<div class="input text">	
+				<table class="table striped">
+				<tbody>	
+				<?php
+				foreach($images as $image){
+					echo $this->element('banner',array('image'=>$image));
+				}
+				?>
+				</tbody>
+				</table>
+			</div>
+
+			<p><a class="btn btn-default" id="add_image">Add Image</a></p>
+
 			</div>
 			<?php echo $this->Croogo->adminTabs(); ?>
 		</div>
@@ -55,3 +78,16 @@ echo $this->Form->create('Banner');
 
 </div>
 <?php echo $this->Form->end(); ?>
+
+<script type="text/javascript">
+$(function(){
+$("#add_image").click(function(){
+imagepicker.getFiles(function(files){
+	console.log(files);
+	for(i in files){
+		var file = files[i];
+	}
+});
+});
+});
+</script>

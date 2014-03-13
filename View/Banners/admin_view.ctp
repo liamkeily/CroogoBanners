@@ -15,8 +15,6 @@ $this->Html
 		<li><?php echo $this->Form->postLink(__d('croogo', 'Delete Banner'), array('action' => 'delete', $banner['Banner']['id']), array('button' => 'danger', 'escape' => true), __d('croogo', 'Are you sure you want to delete # %s?', $banner['Banner']['id'])); ?> </li>
 		<li><?php echo $this->Html->link(__d('croogo', 'List Banners'), array('action' => 'index'), array('button' => 'default')); ?> </li>
 		<li><?php echo $this->Html->link(__d('croogo', 'New Banner'), array('action' => 'add'), array('button' => 'success')); ?> </li>
-		<li><?php echo $this->Html->link(__d('croogo', 'List Banner Images'), array('controller' => 'banner_images', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Html->link(__d('croogo', 'New Banner Image'), array('controller' => 'banner_images', 'action' => 'add')); ?> </li>
 		</ul>
 	</div>
 </div>
@@ -36,6 +34,16 @@ $this->Html
 		<dt><?php echo __d('croogo', 'Title'); ?></dt>
 		<dd>
 			<?php echo h($banner['Banner']['title']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __d('croogo', 'Width'); ?></dt>
+		<dd>
+			<?php echo h($banner['Banner']['width']); ?>
+			&nbsp;
+		</dd>
+		<dt><?php echo __d('croogo', 'Height'); ?></dt>
+		<dd>
+			<?php echo h($banner['Banner']['height']); ?>
 			&nbsp;
 		</dd>
 	</dl>

@@ -36,6 +36,12 @@ echo $this->Form->create('Banner');
 				echo $this->Form->input('title', array(
 					'label' => 'Title',
 				));
+				echo $this->Form->input('width', array(
+					'label' => 'Width',
+				));
+				echo $this->Form->input('height', array(
+					'label' => 'Height',
+				));
 			?>
 			</div>
 			<?php echo $this->Croogo->adminTabs(); ?>

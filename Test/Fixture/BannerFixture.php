@@ -14,6 +14,8 @@ class BannerFixture extends CakeTestFixture {
 		'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'unsigned' => false, 'key' => 'primary'),
 		'slug' => array('type' => 'string', 'null' => true, 'default' => null, 'length' => 50, 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
 		'title' => array('type' => 'string', 'null' => true, 'default' => null, 'length' => 100, 'collate' => 'latin1_swedish_ci', 'charset' => 'latin1'),
+		'width' => array('type' => 'integer', 'null' => false, 'default' => null, 'unsigned' => false),
+		'height' => array('type' => 'integer', 'null' => false, 'default' => null, 'unsigned' => false),
 		'indexes' => array(
 			'PRIMARY' => array('column' => 'id', 'unique' => 1)
 		),
@@ -29,7 +31,9 @@ class BannerFixture extends CakeTestFixture {
 		array(
 			'id' => 1,
 			'slug' => 'Lorem ipsum dolor sit amet',
-			'title' => 'Lorem ipsum dolor sit amet'
+			'title' => 'Lorem ipsum dolor sit amet',
+			'width' => 1,
+			'height' => 1
 		),
 	);
 

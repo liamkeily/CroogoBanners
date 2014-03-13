@@ -14,6 +14,8 @@ $this->Html
 		<th><?php echo $this->Paginator->sort('id'); ?></th>
 		<th><?php echo $this->Paginator->sort('slug'); ?></th>
 		<th><?php echo $this->Paginator->sort('title'); ?></th>
+		<th><?php echo $this->Paginator->sort('width'); ?></th>
+		<th><?php echo $this->Paginator->sort('height'); ?></th>
 		<th class="actions"><?php echo __d('croogo', 'Actions'); ?></th>
 	</tr>
 	<?php foreach ($banners as $banner): ?>
@@ -21,6 +23,8 @@ $this->Html
 		<td><?php echo h($banner['Banner']['id']); ?>&nbsp;</td>
 		<td><?php echo h($banner['Banner']['slug']); ?>&nbsp;</td>
 		<td><?php echo h($banner['Banner']['title']); ?>&nbsp;</td>
+		<td><?php echo h($banner['Banner']['width']); ?>&nbsp;</td>
+		<td><?php echo h($banner['Banner']['height']); ?>&nbsp;</td>
 		<td class="item-actions">
 			<?php echo $this->Croogo->adminRowAction('', array('action' => 'view', $banner['Banner']['id']), array('icon' => 'eye-open')); ?>
 			<?php echo $this->Croogo->adminRowAction('', array('action' => 'edit', $banner['Banner']['id']), array('icon' => 'pencil')); ?>

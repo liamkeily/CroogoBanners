@@ -8,6 +8,9 @@ App::uses('BannersAppController', 'Banners.Controller');
  */
 class BannersController extends BannersAppController {
 
+
+	public $uses = array('Banner','BannerImage');
+
 /**
  * Components
  *
@@ -79,6 +82,10 @@ class BannersController extends BannersAppController {
 			$options = array('conditions' => array('Banner.' . $this->Banner->primaryKey => $id));
 			$this->request->data = $this->Banner->find('first', $options);
 		}
+
+		$images = $this->BannerImage->findAllByBannerId($id);		
+
+		$this->set(compact('images'));
 	}
 
 /**
